@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Weather.css";
 
 export default function Weather() {
   let weatherData = {
-    city: "New York",
     date: "Thursday, 09:35",
     description: "light rain",
     humidity: "80%",
@@ -13,15 +12,27 @@ export default function Weather() {
     temperature: "7",
   };
 
+  const [city, getCity] = useState("");
+  const [h1Element, newH1Element] = useState("");
+
+  function handleSearch(event) {
+    event.preventDefault();
+    newH1Element(city);
+  }
+
+  function getSearch(event) {
+    getCity(event.target.value);
+  }
+
   return (
     <div className="weather-app">
       <div className="Search">
-        <form>
+        <form onSubmit={handleSearch}>
           <input
             type="search"
             placeholder="Enter a city.."
             className="search-input"
-            required
+            onChange={getSearch}
           />
           <input type="submit" value="Search" className="search-button" />
         </form>
@@ -29,7 +40,7 @@ export default function Weather() {
       <div className="weatherMain">
         <div className="current-weather">
           <div className="city-weather-condition">
-            <div className="current-city">{weatherData.city}</div>
+            <div className="current-city">{h1Element}</div>
             <p className="current-details">
               <span>{weatherData.date}</span>
               <span>, {weatherData.description}</span> <br />
