@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
+import WeatherFooter from "./WeatherFooter";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather() {
   let weatherData = {
@@ -66,43 +68,14 @@ export default function Weather() {
         </div>
         <div className="weather-forecast"></div>
       </div>
+
       <div className="weatherForecast">
         <div className="row">
-          <div className="col-1">
-            <div className="weather-forecast-day">Tue</div>
-            <img
-              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/snow-day.png"
-              className="forecast-icon"
-              alt=""
-            />
-            <div className="max-man-temperature">
-              <span className="forecast-temperature-max">12°</span>
-              <span className="forecast-temperature-min">8°</span>
-            </div>
-          </div>
+          <WeatherForecast />
         </div>
       </div>
 
-      <div className="Footer">
-        <p>
-          This project was coded by
-          <a href="https://github.com/OlehSheleheda" target="_blank">
-            Oleh Sheleheda
-          </a>
-          committed on
-          <a
-            href="https://github.com/OlehSheleheda/weather_app"
-            target="_blank"
-          >
-            {" "}
-            GitHub
-          </a>
-          and hosted on
-          <a href="https://rococo-bonbon-544074.netlify.app" target="_blank">
-            Netlify
-          </a>
-        </p>
-      </div>
+      <WeatherFooter />
     </div>
   );
 }
