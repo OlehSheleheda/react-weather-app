@@ -1,0 +1,41 @@
+.CurrentWeatherInfo .first-line {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  line-height: 60px;
+}
+.CurrentWeatherInfo .left-first-line {
+  display: flex;
+}
+.CurrentWeatherInfo .current-icon {
+}
+
+.CurrentWeatherInfo .current-temperature {
+  font-size: 48px;
+  margin: -8px 10px 0px 10px;
+}
+
+.CurrentWeatherInfo .current-weather-unit {
+  vertical-align: top;
+  margin-top: -20px;
+}
+
+.CurrentWeatherInfo .current-weather-condition {
+  color: #70757a;
+  margin-left: 10px;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.CurrentWeatherInfo .right-first-line {
+  text-align: right;
+  font-size: 22px;
+
+  line-height: 22px;
+  width: 250px;
+}
+
+.CurrentWeatherInfo .current-day-time {
+  font-size: 16px;
+  color: #70757a;
+}

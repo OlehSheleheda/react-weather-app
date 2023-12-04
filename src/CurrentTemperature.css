@@ -1,0 +1,13 @@
+.CurrentTemperature {
+  display: flex;
+}
+
+.CurrentTemperature .current-temperature-value {
+  font-size: 48px;
+  margin: -8px 10px 0px 10px;
+}
+
+.CurrentTemperature .current-weather-unit {
+  vertical-align: top;
+  margin-top: -20px;
+}
