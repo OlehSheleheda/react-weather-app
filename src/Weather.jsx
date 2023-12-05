@@ -6,27 +6,19 @@ import CurrentWeatherInfo from "./CurrentWeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
-  const [curData, getCurData] = useState({ ready: false });
+  const [loaded, getLoaded] = useState(false);
+  const [curData, getCurData] = useState(null);
   const [city, getCity] = useState(props.defaultCity);
 
   function getCurrentWeatherData(response) {
-    getCurData({
-      ready: true,
-      curCity: response.data.name,
-      curCountry: response.data.sys.country,
-      curTemperature: response.data.main.temp,
-      curHumidity: response.data.main.humidity,
-      curWindSpeed: response.data.wind.speed,
-      curPressure: response.data.main.pressure,
-      curDate: response.data.dt,
-      curDescription: response.data.weather[0].description,
-      curIcon: response.data.weather[0].icon,
-    });
+    getLoaded(true);
+    getCurData(response.data);
+  
   }
 
   function callApi() {
-    let key = `1ee4264117b73d2263eecd562f31ef5c`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+    let key = `a3cbd9d4064873f3bb4b9245b13146d7`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
     axios.get(apiUrl).then(getCurrentWeatherData);
   }
 
@@ -39,8 +31,7 @@ export default function Weather(props) {
     getCity(event.target.value);
   }
 
-  if (curData.ready === true) {
-    console.log(curData);
+  if (loaded === true) {
     return (
       <div className="Weather">
         <div className="weather-app">
@@ -56,7 +47,7 @@ export default function Weather(props) {
             </form>
           </div>
           <CurrentWeatherInfo data={curData} />
-          <WeatherForecast />
+          <WeatherForecast data={curData} />
         </div>
       </div>
     );

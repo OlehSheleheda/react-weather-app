@@ -1,6 +1,6 @@
 .Weather .weather-app {
   background: white;
-  width: 652px;
+  width: 600px;
   margin: 60px auto;
   padding: 30px;
   border-radius: 10px;
@@ -43,9 +43,3 @@
   margin-left: 200px;
 }
 
-.CurrentWeatherInfo .first-line {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  line-height: 60px;
-}

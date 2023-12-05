@@ -1,0 +1,17 @@
+.DailyWeatherForecast .weather-forecast-day {
+  margin-bottom: 10px;
+  opacity: 0.6;
+  font-weight: 700;
+}
+
+.DailyWeatherForecast .max-man-temperature {
+  margin-top: 10px;
+}
+
+.DailyWeatherForecast .forecast-temperature-min {
+  opacity: 0.6;
+}
+
+.DailyWeatherForecast .forecast-temperature-max {
+  font-weight: 600;
+}

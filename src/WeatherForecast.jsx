@@ -1,21 +1,20 @@
 import React from "react";
-import CurrentWeatherIcon from "./CurrentWeatherIcon";
-import "./WeatherForecast.css";
 
-export default function WeatherForecast() {
-  let element = (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col-1">
-          <div className="weather-forecast-day">Tue</div>
-          <CurrentWeatherIcon icon="01d" size={40}/>
-          <div className="max-man-temperature">
-            <span className="forecast-temperature-max">12° </span>
-            <span className="forecast-temperature-min">8°</span>
-          </div>
-        </div>
+import "./WeatherForecast.css";
+import DailyWeatherForecast from "./DailyWeatherForecast";
+
+export default function WeatherForecast(props) {
+  if (props.data) {
+    return (
+      <div className="WeatherForecast">
+        <DailyWeatherForecast data={props.data.list[7]} />
+        <DailyWeatherForecast data={props.data.list[15]} />
+        <DailyWeatherForecast data={props.data.list[23]} />
+        <DailyWeatherForecast data={props.data.list[31]} />
+        <DailyWeatherForecast data={props.data.list[39]} />
       </div>
-    </div>
-  );
-  return element;
+    );
+  } else {
+    return `Loading forecast data...`;
+  }
 }
