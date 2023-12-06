@@ -4,6 +4,7 @@ import CurrentWeatherIcon from "./CurrentWeatherIcon";
 
 export default function DailyWeatherForecast(props) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sut"];
+ 
 
   return (
     <div className="DailyWeatherForecast">

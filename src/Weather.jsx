@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Weather.css";
 import MoonLoader from "react-spinners/MoonLoader";
@@ -6,14 +6,13 @@ import CurrentWeatherInfo from "./CurrentWeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
-  const [loaded, getLoaded] = useState(false);
-  const [curData, getCurData] = useState(null);
-  const [city, getCity] = useState(props.defaultCity);
+  const [loaded, setLoaded] = useState(false);
+  const [curData, setCurData] = useState(null);
+  const [city, setCity] = useState(props.defaultCity);
 
   function getCurrentWeatherData(response) {
-    getLoaded(true);
-    getCurData(response.data);
-  
+    setLoaded(true);
+    setCurData(response.data);
   }
 
   function callApi() {
@@ -28,7 +27,7 @@ export default function Weather(props) {
   }
 
   function changeCity(event) {
-    getCity(event.target.value);
+    setCity(event.target.value);
   }
 
   if (loaded === true) {
@@ -39,7 +38,7 @@ export default function Weather(props) {
             <form onSubmit={handleSearch}>
               <input
                 type="search"
-                placeholder="city name"
+                placeholder="enter city"
                 className="search-input"
                 onChange={changeCity}
               />
@@ -60,7 +59,7 @@ export default function Weather(props) {
             <form>
               <input
                 type="search"
-                placeholder="city name"
+                placeholder="enter city"
                 className="search-input"
               />
               <input type="submit" value="Search" className="search-button" />
